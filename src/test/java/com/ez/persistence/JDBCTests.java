@@ -21,7 +21,7 @@ public class JDBCTests {
 	
 	@Test
 	public void testConnection() {
-		try(Connection con = DriverManager.getConnection("jdbc:oracle:thin:@61.75.138.220:1521:XE", "ezLc", "ezinc1234~~")) {
+		try(Connection con = DriverManager.getConnection("jdbc:oracle:thin:@61.75.138.220:1521:XE", "ezLc", "password를 입력하세요.")) {
 			log.info(con);
 		} catch (Exception e) {
 			fail(e.getMessage());
