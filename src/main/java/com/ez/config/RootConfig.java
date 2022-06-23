@@ -4,6 +4,7 @@ import javax.sql.DataSource;
 
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -16,6 +17,7 @@ import com.zaxxer.hikari.HikariDataSource;
 // 스프링이 로딩되면서 읽어들이는 파일
 @Configuration
 @ComponentScan(basePackages = {"com.ez.sample"})
+@MapperScan(basePackages = {"com.ez.mapper"})
 public class RootConfig { 
 	//커넥션풀 등록
 	@Bean
