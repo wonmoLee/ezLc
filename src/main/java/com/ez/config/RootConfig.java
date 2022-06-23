@@ -2,6 +2,8 @@ package com.ez.config;
 
 import javax.sql.DataSource;
 
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.mybatis.spring.SqlSessionFactoryBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -15,6 +17,7 @@ import com.zaxxer.hikari.HikariDataSource;
 @Configuration
 @ComponentScan(basePackages = {"com.ez.sample"})
 public class RootConfig { 
+	//커넥션풀 등록
 	@Bean
 	public DataSource dataSource() {
 		HikariConfig hikariConfig = new HikariConfig();
@@ -25,5 +28,13 @@ public class RootConfig {
 		
 		HikariDataSource dataSource = new HikariDataSource(hikariConfig);
 		return dataSource;
+	}
+	
+	// Mybatis 객체 SqlSessionFactory 등록
+	@Bean
+	public SqlSessionFactory sqlSessionFactory() throws Exception {
+		SqlSessionFactoryBean sqlSessionFactory = new SqlSessionFactoryBean();
+		sqlSessionFactory.setDataSource(dataSource());
+		return (SqlSessionFactory) sqlSessionFactory.getObject();
 	}
 }
