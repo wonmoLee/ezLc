@@ -16,7 +16,8 @@ import com.zaxxer.hikari.HikariDataSource;
 // 스프링이 생성하고 관리해야 하는 객체들에 대한 설정파일
 // 스프링이 로딩되면서 읽어들이는 파일
 @Configuration
-@ComponentScan(basePackages = {"com.ez.sample"})
+@ComponentScan(basePackages = {"com.ez.service"})
+@ComponentScan(basePackages = "com.ez.aop")
 @MapperScan(basePackages = {"com.ez.mapper"})
 public class RootConfig { 
 	//커넥션풀 등록
