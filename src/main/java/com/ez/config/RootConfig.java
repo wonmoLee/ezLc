@@ -18,7 +18,7 @@ import com.zaxxer.hikari.HikariDataSource;
 @Configuration
 @ComponentScan(basePackages = {"com.ez.service"})
 @ComponentScan(basePackages = "com.ez.aop")
-@MapperScan(basePackages = {"com.ez.mapper"})
+@MapperScan(basePackages = "com.ez.mapper")
 public class RootConfig { 
 	//커넥션풀 등록
 	@Bean
