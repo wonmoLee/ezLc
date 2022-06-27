@@ -6,9 +6,9 @@ import lombok.Data;
 
 @Data
 public class BoardVO {
-	private Long bno;
-	private String title;
-	private String content;
+	private Long BNO;
+	private String TITLE;
+	private String CONTENT;
 	private String REG_ID;
 	private Date REG_DT;
 	private String REG_IP;

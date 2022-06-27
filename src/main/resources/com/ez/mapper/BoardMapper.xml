@@ -7,4 +7,48 @@
 		  FROM TBL_BOARD
 		 WHERE BNO <![CDATA[>]]> 0
 	</select>
+	
+<!-- 	시퀀스를 통해 자동으로 PK값이 정해지는 경우 Insert 방식이 2가지이다. -->
+<!-- 	1. Insert만 처리되고 생성된 PK값을 알 필요가 없는 경우 -->
+<!-- 	2. Insert문이 실행되고 생성된 PK 값을 알아야할 경우	 -->
+
+<!-- 	1번 case -->
+	<insert id="insert">
+		INSERT INTO TBL_BOARD
+		(
+			BNO
+			, TITLE
+			, CONTENT
+			, REG_ID
+			, MOD_ID
+		) VALUES (
+			SEQ_BOARD.NEXTVAL
+			, #{TITLE}
+			, #{CONTENT}
+			, #{REG_ID}
+			, #{MOD_ID}
+		)
+	</insert>
+	
+<!-- 	2번 case -->
+	<insert id="insertSelectKey">
+		<selectKey keyProperty="BNO" order="BEFORE" resultType="long">
+			SELECT SEQ_BOARD.NEXTVAL FROM DUAL
+		</selectKey>
+		
+		INSERT INTO TBL_BOARD
+		(
+			BNO
+			, TITLE
+			, CONTENT
+			, REG_ID
+			, MOD_ID
+		) VALUES (
+			#{BNO}
+			, #{TITLE}
+			, #{CONTENT}
+			, #{REG_ID}
+			, #{MOD_ID}
+		)
+	</insert>
 </mapper>
