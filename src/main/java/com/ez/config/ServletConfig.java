@@ -27,7 +27,7 @@ public class ServletConfig implements WebMvcConfigurer {
 	
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/resource/**").addResourceLocations("/resources/");
+		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
 	}
 	
 	@Bean(name = "multipartResolver")
@@ -44,7 +44,7 @@ public class ServletConfig implements WebMvcConfigurer {
 		resolver.setMaxInMemorySize(1024 * 1024); // 메모리상에서 유지하는 최대크기
 		
 		// temp upload
-		resolver.setUploadTempDir(new FileSystemResource("C:\\uploadTest\\tmp")); // 크기 이상의 파일이 임시 저장되는 경로
+		resolver.setUploadTempDir(new FileSystemResource("/home/ezLc/upload/tmp")); // 크기 이상의 파일이 임시 저장되는 경로
 		
 		resolver.setDefaultEncoding("UTF-8");
 		
