@@ -226,5 +226,6 @@
             	</configuration>
             </plugin>
         </plugins>
+        <finalName>ezLc</finalName>
     </build>
 </project>
