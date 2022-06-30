@@ -21,4 +21,10 @@ public class BoardServiceImpl implements BoardService {
 		log.info("BoardService : getList............");
 		return boardMapper.getList();
 	}
+	
+	@Override
+	public void registerAction(BoardVO boardVO) {
+		log.info("BoardService : registerAction............");
+		boardMapper.registerAction(boardVO);
+	}
 }

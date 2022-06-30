@@ -32,7 +32,7 @@ public class BoardMapperTests {
 		boardVO.setREG_ID("21모");
 		boardVO.setMOD_ID("21모");
 		
-		boardMapper.insert(boardVO);
+		boardMapper.registerAction(boardVO);
 		
 		log.info(boardVO);
 	}
