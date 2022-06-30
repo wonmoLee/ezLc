@@ -46,6 +46,8 @@
 	            			<form role="form" action="/board/modifyAction" method="post">
 	            				<button type="submit" class="btn btn-primary" style="margin-top: 30px;">수정</button>
 	            			
+	            				<input class="form-control" type="hidden" name="BNO" value='<c:out value="${board.BNO}"/>' required>
+	            			
 	            				<div class="form-group">
 	            					<label>제목</label>
 	            					<input class="form-control" name="TITLE" value='<c:out value="${board.TITLE}"/>' required>
@@ -53,7 +55,7 @@
 	            				
 	            				<div class="form-group">
 	            					<label>내용</label>
-	            					<textarea class="form-control" rows="22" name="CONTENT" required><c:out value="${board.CONTENT}"/>'</textarea>
+	            					<textarea class="form-control" rows="22" name="CONTENT" required><c:out value="${board.CONTENT}"/></textarea>
 	            				</div>
 	            				
 	            				<div class="form-group">

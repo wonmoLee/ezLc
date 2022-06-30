@@ -308,5 +308,9 @@
     <!-- End of Page Wrapper -->
 
 </body>
-
+<script type="text/javascript">
+	if('${result}' != "") {
+		alert('${result}');
+	}
+</script>
 </html>
