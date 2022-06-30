@@ -62,7 +62,7 @@ public class BoardController {
 		log.info("글수정 완료: " + boardVO);
 		
 		if (boardService.modifyAction(boardVO)) {
-			rttr.addFlashAttribute("result", "글을 수정되었습니다.");
+			rttr.addFlashAttribute("result", "글이 수정되었습니다.");
 		}
 		
 		return "redirect:/board";
