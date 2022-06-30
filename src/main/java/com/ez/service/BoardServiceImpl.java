@@ -27,4 +27,16 @@ public class BoardServiceImpl implements BoardService {
 		log.info("BoardService : registerAction............");
 		boardMapper.registerAction(boardVO);
 	}
+	
+	@Override
+	public BoardVO get(Long bno) {
+		return boardMapper.read(bno);
+	}
+	
+	@Override
+	public boolean modifyAction(BoardVO boardVO) {
+		log.info("BoardService : modifyAction............");
+		
+		return boardMapper.modifyAction(boardVO) == 1;
+	}
 }

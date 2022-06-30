@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ez.domain.BoardVO;
@@ -43,6 +44,26 @@ public class BoardController {
 		boardService.registerAction(boardVO);
 		
 		rttr.addFlashAttribute("result", boardVO.getBNO());
+		
+		return "redirect:/board";
+	}
+	
+	@GetMapping("/modify")
+	public String modify (@RequestParam("bno") Long bno, Model model) {
+		log.info("BoardController: modify.............");
+		
+		model.addAttribute("board", boardService.get(bno));
+		
+		return "/user/board/modify";
+	}
+	
+	@PostMapping("/modifyAction")
+	public String modifyAction(BoardVO boardVO, RedirectAttributes rttr) {
+		log.info("글수정 완료: " + boardVO);
+		
+		if (boardService.modifyAction(boardVO)) {
+			rttr.addFlashAttribute("result", "SUCCESS");
+		}
 		
 		return "redirect:/board";
 	}

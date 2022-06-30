@@ -36,29 +36,29 @@
 	            <!-- Main Content -->
 	            <div class="row" style="margin-top: 30px;">
 	           		<div class="col-lg-12">
-	           			<h1 class="h3 mb-2 text-gray-800" style="margin-left: 7px;">글 등록</h1>
+	           			<h1 class="h3 mb-2 text-gray-800" style="margin-left: 7px;">글 수정</h1>
 	           		</div> 
 	            </div>
 	            
 	            <div>
 	            	<div class="col-lg-12">
 	            		<div class="panel panel-default">
-	            			<form role="form" action="/board/registerAction" method="post">
-	            				<button type="submit" class="btn btn-primary" style="margin-top: 30px;">등록</button>
+	            			<form role="form" action="/board/modifyAction" method="post">
+	            				<button type="submit" class="btn btn-primary" style="margin-top: 30px;">수정</button>
 	            			
 	            				<div class="form-group">
 	            					<label>제목</label>
-	            					<input class="form-control" name="TITLE" required>
+	            					<input class="form-control" name="TITLE" value='<c:out value="${board.TITLE}"/>' required>
 	            				</div>
 	            				
 	            				<div class="form-group">
 	            					<label>내용</label>
-	            					<textarea class="form-control" rows="22" name="CONTENT" required></textarea>
+	            					<textarea class="form-control" rows="22" name="CONTENT" required><c:out value="${board.CONTENT}"/>'</textarea>
 	            				</div>
 	            				
 	            				<div class="form-group">
-	            					<label>작성자</label>
-	            					<input class="form-control" name="REG_ID" required>
+	            					<label>수정자</label>
+	            					<input class="form-control" name="MOD_ID" value='<c:out value="${board.MOD_ID}"/>' readonly="readonly">
 	            				</div>
 	            			</form>
 	            		</div>

@@ -17,6 +17,20 @@
 		 WHERE BNO <![CDATA[>]]> 0
 	</select>
 	
+	<select id="read" resultType="com.ez.domain.BoardVO">
+		SELECT BNO
+			   , TITLE								AS TITLE
+			   , CONTENT							AS CONTENT
+			   , REG_ID								AS REG_ID
+			   , TO_CHAR(REG_DT, 'YYYY-MM-DD')		AS REG_DT
+			   , REG_IP								AS REG_IP
+			   , MOD_ID								AS MOD_ID
+			   , TO_CHAR(MOD_DT, 'YYYY-MM-DD')		AS MOD_DT
+			   , MOD_IP 							AS MOD_IP
+		  FROM TBL_BOARD
+		 WHERE BNO = #{BNO}
+	</select>
+	
 	<insert id="registerAction">
 		<selectKey keyProperty="BNO" order="BEFORE" resultType="long">
 			SELECT SEQ_BOARD.NEXTVAL FROM DUAL
@@ -37,4 +51,12 @@
 			, #{REG_ID}
 		)
 	</insert>
+	
+	<update id="modifyAction">
+		UPDATE TBL_BOARD
+		   SET TITLE = #{TITLE}
+		   	   , CONTENT = #{CONTENT}
+		   	   , MOD_DT = SYSDATE
+		 WHERE BNO = #{BNO}
+	</update>
 </mapper>

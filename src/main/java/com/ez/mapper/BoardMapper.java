@@ -10,4 +10,8 @@ public interface BoardMapper {
 	public void registerAction(BoardVO boardVO);
 	
 	public void insertSelectKey(BoardVO boardVO);
+	
+	public BoardVO read(Long bno);
+	
+	public int modifyAction(BoardVO boardVO);
 }
