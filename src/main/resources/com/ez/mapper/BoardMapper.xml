@@ -2,16 +2,17 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ez.mapper.BoardMapper">
+<!-- 	게시글 가져오기 -->
 	<select id="getList" resultType="com.ez.domain.BoardVO">
 		SELECT BNO
-			   , TITLE
-			   , CONTENT
-			   , REG_ID
-			   , REG_DT
-			   , REG_IP
-			   , MOD_ID
-			   , MOD_DT
-			   , MOD_IP 
+			   , TITLE								AS TITLE
+			   , CONTENT							AS CONTENT
+			   , REG_ID								AS REG_ID
+			   , TO_CHAR(REG_DT, 'YYYY-MM-DD')		AS REG_DT
+			   , REG_IP								AS REG_IP
+			   , MOD_ID								AS MOD_ID
+			   , TO_CHAR(MOD_DT, 'YYYY-MM-DD')		AS MOD_DT
+			   , MOD_IP 							AS MOD_IP
 		  FROM TBL_BOARD
 		 WHERE BNO <![CDATA[>]]> 0
 	</select>
