@@ -45,7 +45,7 @@
 	            		<div class="panel panel-default">
 	            			<form role="form" action="/board/modifyAction" method="post">
 	            				<button type="submit" class="btn btn-primary" style="margin-top: 30px;">수정</button>
-	            			
+	            				
 	            				<input class="form-control" type="hidden" name="BNO" value='<c:out value="${board.BNO}"/>' required>
 	            			
 	            				<div class="form-group">
