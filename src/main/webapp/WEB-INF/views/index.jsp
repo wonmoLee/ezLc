@@ -228,15 +228,25 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-					<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-						<tbody>
                          	<c:forEach items="${data}" var="fooddata">
-                         		<tr>
-                                    <td><c:out value="${fooddata.mainTitle}"></c:out></td>
-                                </tr>
+                         		<div><c:out value="${fooddata.UC_SEQ}"></c:out></div>
+                         		<div><c:out value="${fooddata.MAIN_TITLE}"></c:out></div>
+                         		<div><c:out value="${fooddata.GUGUN_NM}"></c:out></div>
+                         		<div><c:out value="${fooddata.LAT}"></c:out></div>
+                         		<div><c:out value="${fooddata.LNG}"></c:out></div>
+                         		<div><c:out value="${fooddata.PLACE}"></c:out></div>
+                         		<div><c:out value="${fooddata.TITLE}"></c:out></div>
+                         		<div><c:out value="${fooddata.SUBTITLE}"></c:out></div>
+                         		<div><c:out value="${fooddata.ADDR1}"></c:out></div>
+                         		<div><c:out value="${fooddata.ADDR2}"></c:out></div>
+                         		<div><c:out value="${fooddata.CNTCT_TEL}"></c:out></div>
+                         		<div><c:out value="${fooddata.HOMEPAGE_URL}"></c:out></div>
+                         		<div><c:out value="${fooddata.USAGE_DAY_WEEK_AND_TIME}"></c:out></div>
+                         		<div><c:out value="${fooddata.RPRSNTV_MENU}"></c:out></div>
+                         		<img src="${fooddata.MAIN_IMG_NORMAL}">
+                         		<div><c:out value="${fooddata.MAIN_IMG_THUMB}"></c:out></div>
+                         		<div><c:out value="${fooddata.ITEMCNTNTS}"></c:out></div>
                          	</c:forEach>
-                         </tbody>
-					</table>
                 </div>
                 <!-- /.container-fluid -->
 
